@@ -37,6 +37,7 @@ project:
             - file: notebooks/uxarray_test.ipynb
             - file: notebooks/era5_precip.ipynb
             - file: notebooks/saag.ipynb
+            - file: notebooks/hadisst_elnino.ipynb
 
         - title: Other data origins
           children:
