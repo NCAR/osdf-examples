@@ -44,6 +44,7 @@ project:
             - file: notebooks/hrrr_aws.ipynb
             - file: notebooks/cmip6_bias_correction.ipynb
             - file: notebooks/cmip6_precipitation.ipynb
+            - file: notebooks/cmip6_ecs.ipynb
             - file: notebooks/cmip6_temps_zarr.ipynb
             - file: notebooks/simple_aws_example.ipynb
 
