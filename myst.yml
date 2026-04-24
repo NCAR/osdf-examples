@@ -38,6 +38,7 @@ project:
             - file: notebooks/era5_precip.ipynb
             - file: notebooks/saag.ipynb
             - file: notebooks/hadisst_elnino.ipynb
+            - file: notebooks/jja_heatindex.ipynb
 
         - title: Other data origins
           children:
