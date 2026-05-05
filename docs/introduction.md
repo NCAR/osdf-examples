@@ -120,6 +120,10 @@ value to find every notebook that carries it. For example:
 - Combine with a free-text term — **`era5 precip`** narrows to ERA5
   precipitation notebooks.
 
+Each visible tag pill on a notebook page (or in the gallery) is also a
+clickable link into the [Tag Index](./tag_index.md), where you can see
+every notebook that shares that tag in one place.
+
 **A note on `platform:` tags.** Most notebooks are designed to run on a
 user's own machine via a Dask `LocalCluster`, and only opt into PBS/Slurm
 when a flag is set. The `platform:` tag therefore documents **where the

@@ -231,19 +231,40 @@ def make_title_cell(title: str, tags: list[str], heading: str) -> dict:
     }
 
 
-def make_tag_cell(tags: list[str]) -> dict:
-    """Build the visible tag line cell as inline HTML span elements.
+FACET_ORDER = ["origin", "platform", "dataset", "task", "access", "level"]
+FACET_TITLES = {
+    "origin":   "Data origin",
+    "platform": "Compute platform (tested on)",
+    "dataset":  "Dataset",
+    "task":     "Task",
+    "access":   "Access method",
+    "level":    "Difficulty level",
+}
 
-    Renders each tag as `<span class="tag tag-origin">origin:aws</span>` so
-    it can be styled as a pill badge by `custom.css`. Pandoc-style
-    `[text]{.class}` attributes are not parsed by MyST/jupyter-book v2.0,
-    but inline HTML is passed through unchanged.
+
+def tag_anchor(tag: str) -> str:
+    """Anchor id used on tag-index for a given tag (e.g. tag-origin-aws)."""
+    facet, value = tag.split(":", 1)
+    return f"tag-{facet}-{value}"
+
+
+def render_chip(tag: str) -> str:
+    """Render one tag as a colored, clickable pill linking to the index.
+
+    Uses inline HTML because MyST/jupyter-book v2.0 doesn't parse
+    Pandoc-style `[text]{.class}` attributes, but passes raw HTML through.
     """
-    chips = []
-    for t in tags:
-        facet = t.split(":", 1)[0]
-        chips.append(f'<span class="tag tag-{facet}">{t}</span>')
-    inline = " ".join(chips)
+    facet = tag.split(":", 1)[0]
+    return (
+        f'<a class="tag-link" href="tag-index#{tag_anchor(tag)}">'
+        f'<span class="tag tag-{facet}">{tag}</span>'
+        f'</a>'
+    )
+
+
+def make_tag_cell(tags: list[str]) -> dict:
+    """Build the visible tag-line cell — a row of clickable colored pills."""
+    inline = " ".join(render_chip(t) for t in tags)
     return {
         "cell_type": "markdown",
         "id": str(uuid.uuid4())[:8],
@@ -304,6 +325,57 @@ def process(rel_path: str, title: str, tags: list[str]) -> str:
     return "updated"
 
 
+def write_tag_index() -> None:
+    """Write docs/tag_index.md — the inverse map (tag → notebooks)."""
+    # Build {facet: {value: [(rel_path, title), ...]}}
+    inverse: dict[str, dict[str, list[tuple[str, str]]]] = {f: {} for f in FACET_ORDER}
+    for rel_path, (title, tags) in NOTEBOOKS.items():
+        if not (REPO / rel_path).exists():
+            continue
+        for tag in tags:
+            facet, value = tag.split(":", 1)
+            inverse.setdefault(facet, {}).setdefault(value, []).append((rel_path, title))
+
+    out: list[str] = [
+        "---",
+        "title: Tag Index",
+        "description: Find notebooks by tag — every tag pill on the site links here.",
+        "---",
+        "",
+        "# Tag Index",
+        "",
+        "Every colored pill on a notebook page or in the gallery is a link to a",
+        "section on this page. Click a tag anywhere on the site to jump straight",
+        "to the list of notebooks that share it.",
+        "",
+        "You can also reach this index by typing a tag value (e.g. `platform:casper`)",
+        "into the search bar at the top of the page.",
+        "",
+    ]
+
+    for facet in FACET_ORDER:
+        values = inverse.get(facet, {})
+        if not values:
+            continue
+        out.append(f"## {FACET_TITLES[facet]}")
+        out.append("")
+        for value in sorted(values):
+            anchor = f"tag-{facet}-{value}"
+            tag = f"{facet}:{value}"
+            chip = (
+                f'<span class="tag tag-{facet}">{tag}</span>'
+            )
+            out.append(f"({anchor})=")
+            out.append(f"### {chip}")
+            out.append("")
+            for rel_path, title in sorted(values[value], key=lambda x: x[1].lower()):
+                out.append(f"- [`{Path(rel_path).name}`](../{rel_path}) — {title}")
+            out.append("")
+
+    (REPO / "docs" / "tag_index.md").write_text("\n".join(out) + "\n")
+    print(f"wrote docs/tag_index.md ({sum(len(v) for v in inverse.values())} unique tag values)")
+
+
 def main():
     counts = {"updated": 0, "missing": 0}
     for rel_path, (title, tags) in NOTEBOOKS.items():
@@ -315,6 +387,7 @@ def main():
         action = process(rel_path, title, tags)
         counts[action] += 1
         print(f"{action}: {rel_path}")
+    write_tag_index()
     print()
     print(f"updated: {counts['updated']}")
     print(f"missing: {counts['missing']}")
