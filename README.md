@@ -16,7 +16,7 @@ run analysis on a variety of HPC and cloud platforms.
 [OSDF Cookbook](https://projectpythia.org/osdf-cookbook/) is the recommended
 introduction — its first chapters cover the OSDF concept and PelicanFS in
 depth. For background on how NCAR integrated OSDF with its data
-infrastructure, see Schuster & Hampapura,
+infrastructure, see
 [*Integration of OSDF with NCAR's data infrastructure: Interim Project Report*](https://gdex.ucar.edu/documents/24/Interim_Project_Report_OSDF.pdf)
 (Oct 2025).
 

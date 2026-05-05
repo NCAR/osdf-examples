@@ -48,14 +48,23 @@ tags:
 # Bias-correct CESM2 LENS temperature data using ERA5 reanalysis
 ```
 
-**Cell 2 (tag line, separate cell):**
+**Cell 2 (tag line, separate cell)** — render each tag as an inline HTML
+`<span>` so it's styled as a colored pill via `custom.css`. The class
+scheme is `tag tag-<facet>`, where `<facet>` is one of `origin`,
+`platform`, `dataset`, `task`, `access`, `level`:
 
-```markdown
-**Tags:** `origin:aws` · `origin:ncar-data-origin` · `platform:casper` · `dataset:cesm` · `dataset:era5` · `task:bias-correction` · `access:pelicanfs` · `access:intake-esm` · `level:intermediate`
+```html
+<span class="tag tag-origin">origin:aws</span> <span class="tag tag-origin">origin:ncar-data-origin</span> <span class="tag tag-platform">platform:casper</span> <span class="tag tag-dataset">dataset:cesm</span> <span class="tag tag-dataset">dataset:era5</span> <span class="tag tag-task">task:bias-correction</span> <span class="tag tag-access">access:pelicanfs</span> <span class="tag tag-access">access:intake-esm</span> <span class="tag tag-level">level:intermediate</span>
 ```
 
+(MyST passes inline HTML through; the Pandoc-style `[text]{.class}` shorthand
+is *not* parsed by jupyter-book v2.0, so use the verbose HTML form.)
+
 Keep the two tag lists in sync — the visible line should mirror the
-frontmatter exactly.
+frontmatter exactly. The
+[`scripts/maintenance/tag_notebooks.py`](scripts/maintenance/tag_notebooks.py)
+helper in this repo can apply both cells in one go from a small per-notebook
+mapping; add an entry there when you contribute a new notebook.
 
 ### Tag taxonomy
 

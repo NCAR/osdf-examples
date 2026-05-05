@@ -32,19 +32,20 @@ running.
 Two pieces of jargon worth knowing:
 
 - **Origin** — a server that connects an existing data repository to the
-  federation. NCAR runs an on-prem OSDF origin that exposes datasets from
-  [GDEX](https://gdex.ucar.edu) (NCAR's Geoscience Data Exchange — 17 PB
-  across 1600+ datasets on POSIX storage). The origin is a separate piece of
-  hardware that talks to GDEX's storage; the two are co-located but
-  conceptually distinct.
+  federation. For example, NCAR runs on-prem OSDF origins that expose
+  datasets from [GDEX](https://gdex.ucar.edu) (NCAR's Geoscience Data
+  Exchange — 17 PB across 1600+ datasets on POSIX storage). The origin is a
+  separate piece of hardware that talks to GDEX's storage; the two are
+  co-located but conceptually distinct.
 - **Cache** — a server that holds temporary copies of frequently-requested
-  objects close to where computation happens. NCAR also runs an on-prem
-  cache so Casper/Derecho users get fast access to data from *any* OSDF
-  origin (not just NCAR's).
+  objects close to where computation happens. For instance, NCAR also runs
+  an on-prem cache so Casper/Derecho users get fast access to data from
+  *any* OSDF origin (not just NCAR's).
 
-You don't have to think about origins and caches when you read data —
-PelicanFS handles routing transparently. **PelicanFS** is an
-[FSSpec](https://filesystem-spec.readthedocs.io/) implementation, so it
+You don't have to think about origins and caches when you read data — the
+Pelican packages handle this transparently. In this repository, we use the
+Pelican Python client **PelicanFS**, an
+[FSSpec](https://filesystem-spec.readthedocs.io/) implementation, which
 plugs into anything that already speaks FSSpec: `xarray`, `intake`,
 `intake-esm`, `pandas`. The two URL schemes you'll see throughout this book:
 
@@ -69,8 +70,7 @@ ds = xr.open_zarr("osdf:///aws-opendata/us-west-2/cmip6-pds/.../...")
 For a deeper introduction with executable examples, see Project Pythia's
 [**OSDF Cookbook**](https://projectpythia.org/osdf-cookbook/) — its first
 chapters cover the OSDF concept and PelicanFS usage in detail. To learn how
-NCAR integrated OSDF with its data infrastructure, see Schuster &
-Hampapura's
+NCAR integrated OSDF with its data infrastructure, see
 [*Integration of OSDF with NCAR's data infrastructure: Interim Project Report*](https://gdex.ucar.edu/documents/24/Interim_Project_Report_OSDF.pdf)
 (Oct 2025).
 
