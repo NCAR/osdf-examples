@@ -45,32 +45,44 @@ nav a img.h-9 {
 
 /* ---------------------------------------------------------------- */
 /* Notebook tag badges                                              */
-/* Rendered from inline spans like [origin:aws]{.tag .tag-origin}   */
+/* Higher-specificity selectors (article span.tag) with !important  */
+/* defeat any conflicting book-theme inline-span styling.           */
 /* ---------------------------------------------------------------- */
-.tag {
-  display: inline-block;
-  padding: 2px 10px;
-  margin: 2px 4px 2px 0;
-  border-radius: 12px;
-  font-size: 0.78em;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  border: 1px solid transparent;
-  line-height: 1.6;
-  white-space: nowrap;
-  vertical-align: baseline;
+article span.tag,
+.myst-card span.tag,
+span.tag {
+  display: inline-block !important;
+  padding: 2px 10px !important;
+  margin: 3px 4px 3px 0 !important;
+  border-radius: 999px !important;
+  font-size: 0.8em !important;
+  font-weight: 500 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  border: 1px solid transparent !important;
+  line-height: 1.5 !important;
+  white-space: nowrap !important;
+  vertical-align: baseline !important;
+  text-decoration: none !important;
+  background: #eceff1 !important;
+  color: #263238 !important;
+  border-color: #cfd8dc !important;
 }
-.tag-origin   { background: #e3f2fd; color: #0d47a1; border-color: #bbdefb; }
-.tag-platform { background: #e8f5e9; color: #1b5e20; border-color: #c8e6c9; }
-.tag-dataset  { background: #fff3e0; color: #bf360c; border-color: #ffe0b2; }
-.tag-task     { background: #f3e5f5; color: #4a148c; border-color: #e1bee7; }
-.tag-access   { background: #eceff1; color: #263238; border-color: #cfd8dc; }
-.tag-level    { background: #e0f2f1; color: #004d40; border-color: #b2dfdb; }
+
+article span.tag-origin,   span.tag-origin   { background: #e3f2fd !important; color: #0d47a1 !important; border-color: #90caf9 !important; }
+article span.tag-platform, span.tag-platform { background: #e8f5e9 !important; color: #1b5e20 !important; border-color: #a5d6a7 !important; }
+article span.tag-dataset,  span.tag-dataset  { background: #fff3e0 !important; color: #bf360c !important; border-color: #ffcc80 !important; }
+article span.tag-task,     span.tag-task     { background: #f3e5f5 !important; color: #4a148c !important; border-color: #ce93d8 !important; }
+article span.tag-access,   span.tag-access   { background: #eceff1 !important; color: #263238 !important; border-color: #b0bec5 !important; }
+article span.tag-level,    span.tag-level    { background: #e0f2f1 !important; color: #004d40 !important; border-color: #80cbc4 !important; }
+
+a.tag-link { text-decoration: none !important; }
+a.tag-link:hover span.tag { filter: brightness(0.95); }
 
 @media (prefers-color-scheme: dark) {
-  .tag-origin   { background: #1e3a5f; color: #90caf9; border-color: #2a4a6f; }
-  .tag-platform { background: #1b3a25; color: #a5d6a7; border-color: #2a4a35; }
-  .tag-dataset  { background: #4a2818; color: #ffcc80; border-color: #5a3828; }
-  .tag-task     { background: #3a1f4a; color: #ce93d8; border-color: #4a2f5a; }
-  .tag-access   { background: #2a2f33; color: #b0bec5; border-color: #3a3f43; }
-  .tag-level    { background: #1a3530; color: #80cbc4; border-color: #2a4540; }
+  article span.tag-origin,   span.tag-origin   { background: #1e3a5f !important; color: #90caf9 !important; border-color: #1976d2 !important; }
+  article span.tag-platform, span.tag-platform { background: #1b3a25 !important; color: #a5d6a7 !important; border-color: #2e7d32 !important; }
+  article span.tag-dataset,  span.tag-dataset  { background: #4a2818 !important; color: #ffcc80 !important; border-color: #ef6c00 !important; }
+  article span.tag-task,     span.tag-task     { background: #3a1f4a !important; color: #ce93d8 !important; border-color: #7b1fa2 !important; }
+  article span.tag-access,   span.tag-access   { background: #2a2f33 !important; color: #b0bec5 !important; border-color: #455a64 !important; }
+  article span.tag-level,    span.tag-level    { background: #1a3530 !important; color: #80cbc4 !important; border-color: #00897b !important; }
 }
