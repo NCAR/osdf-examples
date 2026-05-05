@@ -1,42 +1,102 @@
 # OSDF-Examples
 
-## About
-This repository contains Jupyter notebook workflows which access climate data from various [OSDF](https://osg-htc.org/services/osdf.html) origins using [PelicanFS](https://github.com/PelicanPlatform/pelicanfs). The examples include workflows where computations are executed on various platforms like NCAR's Casper, TACC's Stampede3 and cloud computing platforms like Jetstream2. If you use any workflow in this repository, please cite using [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16863133.svg)](https://doi.org/10.5281/zenodo.16863133)
+[![Jupyter Book](https://img.shields.io/badge/jupyter--book-live-blue?logo=jupyter)](https://ncar.github.io/osdf-examples/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16863133.svg)](https://doi.org/10.5281/zenodo.16863133)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue?logo=python)](https://www.python.org/)
+[![PelicanFS](https://img.shields.io/badge/built%20with-PelicanFS-orange)](https://github.com/PelicanPlatform/pelicanfs)
 
+A collection of Jupyter notebooks that stream Earth System Science data from
+[Open Science Data Federation (OSDF)](https://osg-htc.org/services/osdf.html)
+origins using [PelicanFS](https://github.com/PelicanPlatform/pelicanfs), and
+run analysis on a variety of HPC and cloud platforms.
 
-## Example Workflows
-1) Access CESM2 LENS data from the AWS opendata origin and the NCAR data origin and
-   - a) [Benchmark](notebooks/ndc_workflows/aws_benchmark.ipynb) data access speeds for subsets of various sizes.
-   - b) [Bias-correct](notebooks/cesm_bias.ipynb) surface temperature using ERA5 reanalysis. 
-   - c) [Compute](notebooks/cesm_oceanheat.ipynb) surface ocean heat content.
-   - d) [Compute](notebooks/cesm_gmst_ncar.ipynb) GMST anomaly and plot.
-2) Access NOAA SONAR data from the AWS origin to [plot echograms](notebooks/ndc_workflows/sonar_ai.ipynb)
-3) Acesss Sentinel-2 satellite data from AWS to [compute spectral change](notebooks/ndc_workflows/pycogss_spectral_change.ipynb)
-4) Access NA-CORDEX data from NCAR's Geoscience Data Exchange (GDEX) and make some diagnostic [plots](notebooks/na_cordex.ipynb)
-5) Access CONUS 404 data from NCAR's GDEX and make some diagnostic [plots](notebooks/conus404.ipynb)
-6) Access data from the `SAAG' dataset hosted on NCAR's GDEX and make diagnostic [plots](notebooks/saag.ipynb)
-7) Benchmark data access speeds from the NCAR data [origin](notebooks/ndc_workflows/ncar_benchmark.ipynb) using the DART reanalysis dataset and make [diagnostic plots](notebooks/dart-cam6.ipynb)
-8) Benchmark data access speeds from the NCAR's data [origin](notebooks/ndc_workflows/ncar_benchmark_ap40.ipynb), when the data is accessed from the OSPool's access point AP40
-9) Run temperature bias-correction workflow on
-   - a) [Stampede3](notebooks/cesm_osdf_stampede3.ipynb)
-   - b) [NCAR's Casper](notebooks/cesm_posix_bias.ipynb)
-10) [Compute](notebooks/geocat_climatology.ipynb) climatological average of daily temperature data using the [geocat-comp](https://geocat-comp.readthedocs.io/en/stable/examples/climatology_average.html) package
-11) Access CMIP6 zarr data from (> 27 Global Climate Models) AWS and
-    - a) plot the evolution of [Global Mean Surface Temperature](notebooks/cmip6_aws_zarr.ipynb) with time. The model projections were also compared with the [HadCRUT5](https://www.metoffice.gov.uk/hadobs/hadcrut5/) observational dataset.
-    - b) compute [Equilibrium Climate Sensitivity](notebooks/cmip6_ecs.ipynb).
+**Browse the rendered book:** https://ncar.github.io/osdf-examples/
 
-### Machine learning workflows
-1) Use logistic regression to [predict](notebooks/ml_workflows/nino3.4_index.ipynb) Nino3.4 indices in advance. The training data are Sea Surface Temperature values and observed nino indices hosted on NCAR's GDEX.
+## Quick Start
 
-## How to contribute 
-We welcome contributions from anyone who has an NCAR HPC account (Casper/Derecho access) and uses GDEX data! Please follow these steps:
-1. Fork the repository
-2. Create a feature branch (git checkout -b example/my-amazing-example)
-3. Add your notebook/ workflow
-4. Submit a pull request with a brief explanation of the changes
+```bash
+git clone https://github.com/NCAR/osdf-examples.git
+cd osdf-examples
+python -m venv .venv && source .venv/bin/activate    # or use conda
+pip install -r requirements.txt
+jupyter lab
+```
+
+New here? Start with [`notebooks/simple_aws_example.ipynb`](notebooks/simple_aws_example.ipynb)
+(runs on a laptop, no credentials required).
+
+## What's inside
+
+The repository is organized by **data origin** — the OSDF origin a notebook
+streams data from. Each notebook also indicates the **compute platform** it
+was tested on. Browse the [Notebook Gallery](docs/notebook_gallery.md) for the
+full, tagged list.
+
+### Data origins
+- **NCAR Data Origin** — CESM2 LENS, ERA5, JRA-3Q, DART, and other
+  reanalysis/model datasets streamed from NCAR's OSDF origin.
+- **NCAR GDEX** — datasets hosted on NCAR's [Geoscience Data Exchange](https://gdex.ucar.edu/)
+  (NA-CORDEX, CONUS404, SAAG, HadISST, etc.).
+- **AWS Open Data** — CESM2 LENS, CMIP6 zarr (~27 GCMs), HRRR, NOAA SONAR,
+  Sentinel-2 streamed via the AWS open-data origin.
+- **Cross-origin workflows** — examples that combine two or more origins
+  (e.g. bias-correcting a CESM AWS dataset against an NCAR ERA5 dataset).
+
+### Compute platforms covered
+NCAR Casper · TACC Stampede3 · Indiana Jetstream2 · OSPool · laptop
+
+### Workflow types
+Bias correction · climatology · ML (logistic-regression Niño 3.4 prediction) ·
+benchmarking · diagnostic visualization · equilibrium climate sensitivity.
+
+## Finding a notebook
+
+Each notebook is tagged in its frontmatter with a faceted scheme so you can
+filter by axis instead of guessing keywords:
+
+| Facet | Examples |
+|-------|----------|
+| `origin:`   | `aws`, `ncar-data-origin`, `ncar-gdex` |
+| `platform:` | `casper`, `stampede3`, `jetstream2`, `ospool`, `laptop` |
+| `dataset:`  | `cesm`, `cmip6`, `era5`, `conus404`, `na-cordex`, `hrrr`, `dart`, `jra3q`, `hadisst` |
+| `task:`     | `bias-correction`, `climatology`, `ml`, `benchmark`, `visualization`, `ecs` |
+| `access:`   | `pelicanfs`, `intake-esm`, `zarr` |
+| `level:`    | `beginner`, `intermediate`, `advanced` |
+
+The rendered Jupyter Book exposes these tags as filters. See the [Notebook
+Gallery](docs/notebook_gallery.md) for a tagged index, or
+[CONTRIBUTING.md](CONTRIBUTING.md) for the tag conventions when adding new
+notebooks.
+
+## Repository structure
+
+```
+docs/         Markdown overviews and the notebook gallery
+notebooks/    All workflow notebooks (subfolders for ML and NDC workflows)
+scripts/      Non-notebook code (e.g. OSPool batch examples)
+myst.yml      Jupyter Book configuration / table of contents
+```
+
+## How to contribute
+
+Contributions are welcome from anyone — you do **not** need an NCAR HPC
+account. Notebooks that run on a laptop, on the cloud, or on any HPC system
+are all in scope, as long as they demonstrate accessing data via OSDF/PelicanFS.
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b example/my-amazing-example`.
+3. Add your notebook with the standard frontmatter and tags (see
+   [CONTRIBUTING.md](CONTRIBUTING.md)).
+4. Open a pull request describing the dataset, origin, and compute platform.
+
+If you're contributing a workflow that requires NCAR HPC access, please note
+that in the notebook so external readers know what to expect.
+
+## Citing
+
+If you use any workflow in this repository, please cite via the DOI badge
+above.
 
 ## Support
-Issues: Please report bugs and feature requests via GitHub Issues
 
- 
-
+Bug reports and feature requests: please open a [GitHub Issue](https://github.com/NCAR/osdf-examples/issues).

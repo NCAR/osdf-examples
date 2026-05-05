@@ -1,0 +1,86 @@
+# Contributing to OSDF-Examples
+
+Thanks for your interest in contributing! Notebooks that demonstrate streaming
+Earth System Science data via OSDF/PelicanFS are welcome from anyone — you do
+**not** need an NCAR HPC account. Workflows that run on a laptop, on a public
+cloud, or on any HPC system are all in scope.
+
+## Workflow
+
+1. Fork the repository.
+2. Create a branch: `git checkout -b example/<short-description>`.
+3. Add your notebook under `notebooks/` (or an appropriate subfolder).
+4. Add an entry to `myst.yml` so it appears in the Jupyter Book.
+5. Open a pull request describing the dataset, origin, and compute platform
+   used.
+
+## Notebook conventions
+
+### Frontmatter
+
+The first markdown cell of every notebook should be a YAML frontmatter block
+with title, author, and **tags**:
+
+```yaml
+---
+title: Bias-correct CESM2 LENS temperature data
+author: Your Name
+tags:
+  - origin:aws
+  - origin:ncar-data-origin
+  - platform:casper
+  - dataset:cesm
+  - dataset:era5
+  - task:bias-correction
+  - access:pelicanfs
+  - access:intake-esm
+  - level:intermediate
+---
+```
+
+### Tag taxonomy
+
+Tags use a `facet:value` scheme so users can filter on any axis. Always pick
+from the lists below — invent a new value only when none of the existing ones
+fit, and please mention the addition in your PR.
+
+| Facet | Allowed values |
+|-------|----------------|
+| `origin:`   | `aws`, `ncar-data-origin`, `ncar-gdex` |
+| `platform:` | `casper`, `stampede3`, `jetstream2`, `ospool`, `laptop` |
+| `dataset:`  | `cesm`, `cmip6`, `era5`, `conus404`, `na-cordex`, `hrrr`, `dart`, `jra3q`, `hadisst`, `sentinel2`, `sonar` |
+| `task:`     | `bias-correction`, `climatology`, `ml`, `benchmark`, `visualization`, `ecs` |
+| `access:`   | `pelicanfs`, `intake-esm`, `zarr` |
+| `level:`    | `beginner`, `intermediate`, `advanced` |
+
+A notebook can carry multiple `origin:` or `dataset:` tags — list every origin
+or dataset it actually touches.
+
+### Required intro section
+
+After the frontmatter, include a short info section so a reader who lands on
+the notebook directly can tell at a glance whether it's relevant:
+
+- **What this does** — one or two sentences.
+- **Data origin(s)** — which OSDF origin(s) the notebook streams from.
+- **Compute platform** — where the notebook was tested.
+- **Prerequisites** — any credentials, accounts, or HPC allocations needed.
+- **Approximate runtime** and **data volume** — rough order of magnitude.
+
+If a notebook requires NCAR HPC access (Casper/Derecho) or any other
+non-public resource, say so in this section so external readers aren't
+surprised.
+
+### Other guidelines
+
+- Clear notebook outputs that contain large embedded data before committing
+  (`jupyter nbconvert --clear-output --inplace your_notebook.ipynb`).
+- Avoid hard-coded paths to user-private storage; use environment variables
+  or call them out in the prerequisites.
+- Keep cell outputs that visualize results — those are the value of the
+  example.
+
+## Reporting issues
+
+Bugs, broken links, environment problems, and suggestions all belong in
+[GitHub Issues](https://github.com/NCAR/osdf-examples/issues).
