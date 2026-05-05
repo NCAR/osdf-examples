@@ -11,20 +11,30 @@ origin a notebook streams from). Each entry shows a short description and the
 key tags so you can spot relevant ones at a glance.
 
 For the tag taxonomy and conventions, see [CONTRIBUTING.md](../CONTRIBUTING.md#tag-taxonomy).
+For background on OSDF and PelicanFS, see Project Pythia's
+[OSDF Cookbook](https://projectpythia.org/osdf-cookbook/).
+
+> **Note on `platform:` tags.** Most notebooks default to a Dask
+> `LocalCluster` (with PBS/Slurm options for HPC users), so they should run
+> on a laptop with no changes other than a cluster-switch toggle. The
+> `platform:` tag documents where the notebook was *verified*, not the only
+> place it can run.
 
 ## Find a notebook
 
-- **Have NCAR HPC access (Casper/Derecho)?** → Check the [NCAR Data Origin](#ncar-data-origin) and [NCAR GDEX](#ncar-gdex) sections.
+- **Have NCAR HPC access (Casper/Derecho)?** → Check the [GDEX / NCAR Data Origin](#gdex--ncar-data-origin) section — these stream from NCAR's GDEX origin.
 - **Want to run on your laptop or in the cloud?** → Look for `platform:laptop` or `platform:jetstream2` notebooks under [Cross-platform / cloud](#cross-platform--cloud-examples).
 - **Looking for ML examples?** → See [Machine learning](#machine-learning-workflows).
 - **Comparing OSDF performance?** → See [Benchmarks](#benchmarks).
 
 ---
 
-## NCAR Data Origin
+## GDEX / NCAR Data Origin
 
-Notebooks that stream data from NCAR's OSDF origin (CESM2 LENS, ERA5, JRA-3Q,
-DART, CONUS404, etc.).
+Notebooks that stream data from NCAR's OSDF origin — i.e. NCAR's
+[Geoscience Data Exchange (GDEX)](https://gdex.ucar.edu/) — covering CESM2
+LENS, ERA5, JRA-3Q, DART, CONUS404, NA-CORDEX, SAAG, HadISST, and more. All
+of these run on Casper.
 
 | Notebook | Description | Tags |
 |---|---|---|
@@ -42,13 +52,6 @@ DART, CONUS404, etc.).
 | [`na_cordex.ipynb`](../notebooks/na_cordex.ipynb) | NA-CORDEX diagnostic plots | `dataset:na-cordex` `task:visualization` `platform:casper` |
 | [`saag.ipynb`](../notebooks/saag.ipynb) | SAAG dataset diagnostics | `task:visualization` `platform:casper` |
 | [`uxarray_test.ipynb`](../notebooks/uxarray_test.ipynb) | Unstructured-grid access via UXarray | `task:visualization` `platform:casper` |
-
-## NCAR GDEX
-
-Datasets hosted on NCAR's [Geoscience Data Exchange](https://gdex.ucar.edu/).
-The GDEX origin overlaps the NCAR Data Origin in practice; notebooks listed
-above that read NA-CORDEX, CONUS404, SAAG, or HadISST also count as GDEX
-workflows.
 
 ## AWS Open Data
 

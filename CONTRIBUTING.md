@@ -16,10 +16,19 @@ cloud, or on any HPC system are all in scope.
 
 ## Notebook conventions
 
-### Frontmatter
+### Frontmatter and visible tag line
 
-The first markdown cell of every notebook should be a YAML frontmatter block
-with title, author, and **tags**:
+Every notebook needs **two cells at the top**:
+
+1. A title cell — a markdown cell containing only the YAML frontmatter
+   (title, author, tags) and the H1 heading. The frontmatter `tags` feed
+   MyST's search/categorization.
+2. A separate markdown cell with a visible **Tags:** line. This must be its
+   own cell — MyST treats anything else in the title cell as title metadata
+   and strips it from the rendered page, so an inline tag line in the same
+   cell as the heading will not appear.
+
+**Cell 1 (title cell):**
 
 ```yaml
 ---
@@ -36,7 +45,17 @@ tags:
   - access:intake-esm
   - level:intermediate
 ---
+# Bias-correct CESM2 LENS temperature data using ERA5 reanalysis
 ```
+
+**Cell 2 (tag line, separate cell):**
+
+```markdown
+**Tags:** `origin:aws` · `origin:ncar-data-origin` · `platform:casper` · `dataset:cesm` · `dataset:era5` · `task:bias-correction` · `access:pelicanfs` · `access:intake-esm` · `level:intermediate`
+```
+
+Keep the two tag lists in sync — the visible line should mirror the
+frontmatter exactly.
 
 ### Tag taxonomy
 
@@ -55,6 +74,17 @@ fit, and please mention the addition in your PR.
 
 A notebook can carry multiple `origin:` or `dataset:` tags — list every origin
 or dataset it actually touches.
+
+**About `platform:` tags.** The repository's goal is that every notebook
+can run on a user's own machine via a Dask **`LocalCluster`** (with PBS/Slurm
+options available for users on HPC). The `platform:` tag therefore documents
+**where the notebook has been verified to run** — *not* the only place it
+can run. A notebook tagged `platform:casper` was tested on NCAR Casper using
+a PBS cluster; the same notebook should still work locally by flipping the
+cluster switch in the notebook (e.g. `USE_PBS_SCHEDULER = False`). Use a
+single `platform:` value reflecting the platform where the notebook was
+verified — there's no need to also tag `platform:laptop` just because the
+LocalCluster path exists.
 
 ### Required intro section
 

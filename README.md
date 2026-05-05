@@ -12,6 +12,14 @@ run analysis on a variety of HPC and cloud platforms.
 
 **Browse the rendered book:** https://ncar.github.io/osdf-examples/
 
+**New to OSDF or PelicanFS?** Project Pythia's
+[OSDF Cookbook](https://projectpythia.org/osdf-cookbook/) is the recommended
+introduction — its first chapters cover the OSDF concept and PelicanFS in
+depth. For background on how NCAR integrated OSDF with its data
+infrastructure, see Schuster & Hampapura,
+[*Integration of OSDF with NCAR's data infrastructure: Interim Project Report*](https://gdex.ucar.edu/documents/24/Interim_Project_Report_OSDF.pdf)
+(Oct 2025).
+
 ## Quick Start
 
 ```bash
@@ -33,10 +41,10 @@ was tested on. Browse the [Notebook Gallery](docs/notebook_gallery.md) for the
 full, tagged list.
 
 ### Data origins
-- **NCAR Data Origin** — CESM2 LENS, ERA5, JRA-3Q, DART, and other
-  reanalysis/model datasets streamed from NCAR's OSDF origin.
-- **NCAR GDEX** — datasets hosted on NCAR's [Geoscience Data Exchange](https://gdex.ucar.edu/)
-  (NA-CORDEX, CONUS404, SAAG, HadISST, etc.).
+- **GDEX / NCAR Data Origin** — datasets streamed from NCAR's OSDF origin,
+  which is NCAR's [Geoscience Data Exchange (GDEX)](https://gdex.ucar.edu/).
+  Covers CESM2 LENS, ERA5, JRA-3Q, DART, CONUS404, NA-CORDEX, SAAG, HadISST,
+  and more.
 - **AWS Open Data** — CESM2 LENS, CMIP6 zarr (~27 GCMs), HRRR, NOAA SONAR,
   Sentinel-2 streamed via the AWS open-data origin.
 - **Cross-origin workflows** — examples that combine two or more origins
@@ -44,6 +52,12 @@ full, tagged list.
 
 ### Compute platforms covered
 NCAR Casper · TACC Stampede3 · Indiana Jetstream2 · OSPool · laptop
+
+> Most notebooks are designed to run on a user's own machine via a Dask
+> `LocalCluster`. The compute-platform mentions and `platform:` tags
+> indicate where each notebook was *verified* (e.g. via PBS on Casper),
+> not the only place it can run — flip the cluster switch in the notebook
+> to use a `LocalCluster` instead.
 
 ### Workflow types
 Bias correction · climatology · ML (logistic-regression Niño 3.4 prediction) ·

@@ -22,10 +22,9 @@ project:
     - file: docs/notebook_gallery.md
     - file: CONTRIBUTING.md
 
-    - title: NCAR HPC workflows
+    - title: NCAR HPC workflows (Casper)
       children:
-        - file: docs/gdex_workflows.md
-        - title: NCAR data origin
+        - title: GDEX / NCAR data origin
           children:
             - file: notebooks/cesm_bias.ipynb
             - file: notebooks/cesm_gmst_ncar.ipynb
