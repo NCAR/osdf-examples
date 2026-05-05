@@ -70,11 +70,10 @@ filter by axis instead of guessing keywords:
 
 | Facet | Examples |
 |-------|----------|
-| `origin:`   | `aws`, `ncar-data-origin`, `ncar-gdex` |
+| `origin:`   | `aws`, `ncar-posix`, `ncar-object-store` |
 | `platform:` | `casper`, `stampede3`, `jetstream2`, `ospool`, `laptop` |
 | `dataset:`  | `cesm`, `cmip6`, `era5`, `conus404`, `na-cordex`, `hrrr`, `dart`, `jra3q`, `hadisst` |
 | `task:`     | `bias-correction`, `climatology`, `ml`, `benchmark`, `visualization`, `ecs` |
-| `access:`   | `pelicanfs`, `intake-esm`, `zarr` |
 | `level:`    | `beginner`, `intermediate`, `advanced` |
 
 The rendered Jupyter Book exposes these tags as filters. See the [Notebook

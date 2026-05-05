@@ -101,12 +101,17 @@ facets are:
 
 | Facet | Examples |
 |-------|----------|
-| `origin:`   | `aws`, `ncar-data-origin`, `ncar-gdex` |
+| `origin:`   | `aws`, `ncar-posix`, `ncar-object-store` |
 | `platform:` | `casper`, `stampede3`, `jetstream2`, `ospool`, `laptop` |
 | `dataset:`  | `cesm`, `cmip6`, `era5`, `conus404`, `na-cordex`, `hrrr`, `dart`, `jra3q`, `hadisst` |
 | `task:`     | `bias-correction`, `climatology`, `ml`, `benchmark`, `visualization`, `ecs` |
-| `access:`   | `pelicanfs`, `intake-esm`, `zarr` |
 | `level:`    | `beginner`, `intermediate`, `advanced` |
+
+NCAR has two OSDF origins: `ncar-posix` (POSIX storage; namespace
+`osdf:///ncar/gdex/...` — older notebooks may use `osdf:///ncar/rda/...`,
+which is the same origin under its previous name) and `ncar-object-store`
+(NCAR's object storage, currently called Boreas; namespace
+`osdf:///ncar-gdex/...`).
 
 ### Searching by tag
 

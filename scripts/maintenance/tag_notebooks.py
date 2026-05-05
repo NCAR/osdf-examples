@@ -17,201 +17,215 @@ from pathlib import Path
 REPO = Path("/Users/harshah/osdf_examples/.claude/worktrees/naughty-robinson-7a1fa6")
 
 # (relative path) -> (title, tags)
+#
+# Origin tag values reflect the OSDF namespace each notebook actually streams
+# from:
+#   * origin:ncar-posix         -> osdf:///ncar/gdex/...  (POSIX storage; some
+#                                                          older notebooks use
+#                                                          osdf:///ncar/rda/...
+#                                                          which is the same
+#                                                          origin under its
+#                                                          previous name)
+#   * origin:ncar-object-store  -> osdf:///ncar-gdex/...  (NCAR object storage,
+#                                                          currently called
+#                                                          Boreas)
+#   * origin:aws                -> osdf:///aws-opendata/...
 NOTEBOOKS = {
-    # GDEX / NCAR data origin (Casper)
+    # NCAR HPC workflows on Casper
     "notebooks/cesm_bias.ipynb": (
         "Bias-correct CESM2 LENS temperature data",
-        ["origin:aws", "origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "origin:ncar-object-store", "platform:casper",
          "dataset:cesm", "dataset:era5", "task:bias-correction",
-         "access:pelicanfs", "access:intake-esm", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/cesm_gmst_ncar.ipynb": (
         "CESM2 LENS Global Mean Surface Temperature anomaly",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "platform:casper",
          "dataset:cesm", "task:visualization",
-         "access:pelicanfs", "access:intake-esm", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/cesm_oceanheat.ipynb": (
         "CESM2 LENS surface ocean heat content",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "platform:casper",
          "dataset:cesm", "task:visualization",
-         "access:pelicanfs", "access:intake-esm", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/conus404.ipynb": (
         "CONUS404 diagnostic plots",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "platform:casper",
          "dataset:conus404", "task:visualization",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/dart-cam6.ipynb": (
         "DART/CAM6 reanalysis diagnostics",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "origin:ncar-object-store", "platform:casper",
          "dataset:dart", "task:visualization",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/eol_era5.ipynb": (
         "ERA5 access via the EOL/NCAR origin",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "platform:casper",
          "dataset:era5", "task:visualization",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/era5_precip.ipynb": (
         "ERA5 precipitation diagnostics",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "platform:casper",
          "dataset:era5", "task:visualization",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/geocat_climatology.ipynb": (
         "Daily-temperature climatology with geocat-comp",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "platform:casper",
          "dataset:era5", "task:climatology",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/hadisst_elnino.ipynb": (
         "El Niño diagnostics from HadISST",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "platform:casper",
          "dataset:hadisst", "task:visualization",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/jja_heatindex.ipynb": (
         "JJA heat-index calculation",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "platform:casper",
          "dataset:era5", "task:visualization",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/jra_3q.ipynb": (
         "JRA-3Q reanalysis diagnostics",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "platform:casper",
          "dataset:jra3q", "task:visualization",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/na_cordex.ipynb": (
         "NA-CORDEX diagnostic plots",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "origin:ncar-object-store", "platform:casper",
          "dataset:na-cordex", "task:visualization",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/saag.ipynb": (
         "SAAG dataset diagnostics",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "platform:casper",
          "dataset:saag", "task:visualization",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/uxarray_test.ipynb": (
         "Unstructured-grid access via UXarray",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "platform:casper",
          "task:visualization",
-         "access:pelicanfs", "level:advanced"],
+         "level:advanced"],
     ),
     # AWS Open Data
     "notebooks/cmip6_gmst_zarr.ipynb": (
         "Multi-model GMST from CMIP6 zarr (~27 GCMs)",
-        ["origin:aws", "platform:casper",
+        ["origin:aws", "origin:ncar-posix", "origin:ncar-object-store",
+         "platform:casper",
          "dataset:cmip6", "task:visualization",
-         "access:pelicanfs", "access:zarr", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/cmip6_ecs.ipynb": (
         "Equilibrium Climate Sensitivity from CMIP6",
         ["origin:aws", "platform:casper",
          "dataset:cmip6", "task:ecs",
-         "access:pelicanfs", "access:zarr", "level:advanced"],
+         "level:advanced"],
     ),
     "notebooks/cmip6_bias_correction.ipynb": (
         "Bias-correct CMIP6 model output",
         ["origin:aws", "platform:casper",
          "dataset:cmip6", "task:bias-correction",
-         "access:pelicanfs", "access:zarr", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/cmip6_precipitation.ipynb": (
         "CMIP6 precipitation diagnostics",
         ["origin:aws", "platform:casper",
          "dataset:cmip6", "task:visualization",
-         "access:pelicanfs", "access:zarr", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/hrrr_aws.ipynb": (
         "Stream HRRR data from AWS",
         ["origin:aws", "platform:casper",
          "dataset:hrrr", "task:visualization",
-         "access:pelicanfs", "access:zarr", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/simple_aws_example.ipynb": (
         "A simple AWS Open Data example",
         ["origin:aws", "platform:laptop",
          "dataset:cmip6",
-         "access:pelicanfs", "access:zarr", "level:beginner"],
+         "level:beginner"],
     ),
     # ML
     "notebooks/ml_workflows/nino3.4_index.ipynb": (
         "Forecasting Nino 3.4 indices using regression",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:ncar-posix", "platform:casper",
          "dataset:hadisst", "task:ml",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
     # Other compute platforms
     "notebooks/cesm_osdf_stampede3.ipynb": (
         "Bias-correction workflow on TACC Stampede3",
-        ["origin:aws", "origin:ncar-data-origin", "platform:stampede3",
+        ["origin:ncar-posix", "origin:ncar-object-store", "platform:stampede3",
          "dataset:cesm", "dataset:era5", "task:bias-correction",
-         "access:pelicanfs", "access:intake-esm", "level:advanced"],
+         "level:advanced"],
     ),
     "notebooks/jetstream_intro.ipynb": (
         "Introduction to running on Jetstream2",
         ["platform:jetstream2",
-         "access:pelicanfs", "level:beginner"],
+         "level:beginner"],
     ),
     "notebooks/jetstream_cesm_oceanheat.ipynb": (
         "Ocean-heat workflow on Jetstream2",
-        ["origin:ncar-data-origin", "platform:jetstream2",
+        ["origin:ncar-posix", "platform:jetstream2",
          "dataset:cesm", "task:visualization",
-         "access:pelicanfs", "access:intake-esm", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/jetstream_cmip6_gmst.ipynb": (
         "CMIP6 GMST on Jetstream2",
-        ["origin:aws", "platform:jetstream2",
+        ["origin:aws", "origin:ncar-posix", "platform:jetstream2",
          "dataset:cmip6", "task:visualization",
-         "access:pelicanfs", "access:zarr", "level:intermediate"],
+         "level:intermediate"],
     ),
     # NDC / benchmarks
     "notebooks/ndc_workflows/aws_benchmark.ipynb": (
         "Benchmark CESM2 LENS access from AWS origin",
         ["origin:aws", "platform:casper",
          "dataset:cesm", "task:benchmark",
-         "access:pelicanfs", "access:zarr", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/ndc_workflows/ncar_benchmark.ipynb": (
         "Benchmark NCAR-origin access (DART)",
-        ["origin:ncar-data-origin", "platform:casper",
+        ["origin:aws", "origin:ncar-posix", "platform:casper",
          "dataset:dart", "task:benchmark",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/ndc_workflows/ncar_benchmark_simple.ipynb": (
         "Simplified NCAR-origin benchmark",
-        ["origin:ncar-data-origin", "platform:laptop",
+        ["origin:ncar-posix", "platform:laptop",
          "task:benchmark",
-         "access:pelicanfs", "level:beginner"],
+         "level:beginner"],
     ),
     "notebooks/ndc_workflows/ncar_benchmark_ap40.ipynb": (
         "NCAR-origin benchmark via OSPool AP40",
-        ["origin:ncar-data-origin", "platform:ospool",
+        ["origin:ncar-posix", "platform:ospool",
          "task:benchmark",
-         "access:pelicanfs", "level:advanced"],
+         "level:advanced"],
     ),
     "notebooks/ndc_workflows/envistor_test_ap40.ipynb": (
         "Envistor test via OSPool AP40",
         ["platform:ospool", "task:benchmark",
-         "access:pelicanfs", "level:advanced"],
+         "level:advanced"],
     ),
     "notebooks/ndc_workflows/sonar_ai.ipynb": (
         "Plot echograms from NOAA SONAR data",
         ["origin:aws", "platform:laptop",
          "dataset:sonar", "task:visualization",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
     "notebooks/ndc_workflows/pycogss_spectral_change.ipynb": (
         "Spectral change from Sentinel-2 imagery",
         ["origin:aws", "platform:laptop",
          "dataset:sentinel2", "task:visualization",
-         "access:pelicanfs", "level:intermediate"],
+         "level:intermediate"],
     ),
 }
 
@@ -231,13 +245,12 @@ def make_title_cell(title: str, tags: list[str], heading: str) -> dict:
     }
 
 
-FACET_ORDER = ["origin", "platform", "dataset", "task", "access", "level"]
+FACET_ORDER = ["origin", "platform", "dataset", "task", "level"]
 FACET_TITLES = {
     "origin":   "Data origin",
     "platform": "Compute platform (tested on)",
     "dataset":  "Dataset",
     "task":     "Task",
-    "access":   "Access method",
     "level":    "Difficulty level",
 }
 
