@@ -108,6 +108,18 @@ facets are:
 | `access:`   | `pelicanfs`, `intake-esm`, `zarr` |
 | `level:`    | `beginner`, `intermediate`, `advanced` |
 
+### Searching by tag
+
+Tags are full-text indexed by the book's search bar (the magnifying-glass
+icon at the top of every page, or press `/` on your keyboard). Type a tag
+value to find every notebook that carries it. For example:
+
+- Type **`platform:casper`** to list every notebook tested on NCAR Casper.
+- Type **`dataset:cmip6`** to find all CMIP6 examples.
+- Type **`task:bias-correction`** to find every bias-correction workflow.
+- Combine with a free-text term — **`era5 precip`** narrows to ERA5
+  precipitation notebooks.
+
 **A note on `platform:` tags.** Most notebooks are designed to run on a
 user's own machine via a Dask `LocalCluster`, and only opt into PBS/Slurm
 when a flag is set. The `platform:` tag therefore documents **where the
