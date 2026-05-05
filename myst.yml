@@ -20,6 +20,7 @@ project:
     - file: docs/introduction.md
     - file: README.md
     - file: docs/notebook_gallery.md
+    - file: docs/tag_index.md
     - file: CONTRIBUTING.md
 
     - title: NCAR HPC workflows (Casper)

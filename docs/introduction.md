@@ -101,12 +101,17 @@ facets are:
 
 | Facet | Examples |
 |-------|----------|
-| `origin:`   | `aws`, `ncar-data-origin`, `ncar-gdex` |
+| `origin:`   | `aws`, `ncar-posix`, `ncar-object-store` |
 | `platform:` | `casper`, `stampede3`, `jetstream2`, `ospool`, `laptop` |
 | `dataset:`  | `cesm`, `cmip6`, `era5`, `conus404`, `na-cordex`, `hrrr`, `dart`, `jra3q`, `hadisst` |
 | `task:`     | `bias-correction`, `climatology`, `ml`, `benchmark`, `visualization`, `ecs` |
-| `access:`   | `pelicanfs`, `intake-esm`, `zarr` |
 | `level:`    | `beginner`, `intermediate`, `advanced` |
+
+NCAR has two OSDF origins: `ncar-posix` (POSIX storage; namespace
+`osdf:///ncar/gdex/...` — older notebooks may use `osdf:///ncar/rda/...`,
+which is the same origin under its previous name) and `ncar-object-store`
+(NCAR's object storage, currently called Boreas; namespace
+`osdf:///ncar-gdex/...`).
 
 ### Searching by tag
 
@@ -119,6 +124,10 @@ value to find every notebook that carries it. For example:
 - Type **`task:bias-correction`** to find every bias-correction workflow.
 - Combine with a free-text term — **`era5 precip`** narrows to ERA5
   precipitation notebooks.
+
+Each visible tag pill on a notebook page (or in the gallery) is also a
+clickable link into the [Tag Index](./tag_index.md), where you can see
+every notebook that shares that tag in one place.
 
 **A note on `platform:` tags.** Most notebooks are designed to run on a
 user's own machine via a Dask `LocalCluster`, and only opt into PBS/Slurm

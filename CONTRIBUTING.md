@@ -35,26 +35,27 @@ Every notebook needs **two cells at the top**:
 title: Bias-correct CESM2 LENS temperature data
 author: Your Name
 tags:
-  - origin:aws
-  - origin:ncar-data-origin
+  - origin:ncar-posix
+  - origin:ncar-object-store
   - platform:casper
   - dataset:cesm
   - dataset:era5
   - task:bias-correction
-  - access:pelicanfs
-  - access:intake-esm
   - level:intermediate
 ---
 # Bias-correct CESM2 LENS temperature data using ERA5 reanalysis
 ```
 
-**Cell 2 (tag line, separate cell)** — render each tag as an inline HTML
-`<span>` so it's styled as a colored pill via `custom.css`. The class
-scheme is `tag tag-<facet>`, where `<facet>` is one of `origin`,
-`platform`, `dataset`, `task`, `access`, `level`:
+**Cell 2 (tag line, separate cell)** — wrap each tag in an `<a class="tag-link">`
+anchor pointing at the matching section of the auto-generated
+[Tag Index](docs/tag_index.md), with an inner `<span>` carrying the
+`tag tag-<facet>` classes (where `<facet>` is one of `origin`, `platform`,
+`dataset`, `task`, `level`). The script handles all of this for you, so just
+add a row to `NOTEBOOKS` and re-run `tag_notebooks.py`. The rendered cell
+looks like:
 
 ```html
-<span class="tag tag-origin">origin:aws</span> <span class="tag tag-origin">origin:ncar-data-origin</span> <span class="tag tag-platform">platform:casper</span> <span class="tag tag-dataset">dataset:cesm</span> <span class="tag tag-dataset">dataset:era5</span> <span class="tag tag-task">task:bias-correction</span> <span class="tag tag-access">access:pelicanfs</span> <span class="tag tag-access">access:intake-esm</span> <span class="tag tag-level">level:intermediate</span>
+<a class="tag-link" href="tag-index#tag-origin-ncar-posix"><span class="tag tag-origin">origin:ncar-posix</span></a> <a class="tag-link" href="tag-index#tag-origin-ncar-object-store"><span class="tag tag-origin">origin:ncar-object-store</span></a> <a class="tag-link" href="tag-index#tag-platform-casper"><span class="tag tag-platform">platform:casper</span></a> ...
 ```
 
 (MyST passes inline HTML through; the Pandoc-style `[text]{.class}` shorthand
@@ -74,12 +75,17 @@ fit, and please mention the addition in your PR.
 
 | Facet | Allowed values |
 |-------|----------------|
-| `origin:`   | `aws`, `ncar-data-origin`, `ncar-gdex` |
+| `origin:`   | `aws`, `ncar-posix`, `ncar-object-store` |
 | `platform:` | `casper`, `stampede3`, `jetstream2`, `ospool`, `laptop` |
 | `dataset:`  | `cesm`, `cmip6`, `era5`, `conus404`, `na-cordex`, `hrrr`, `dart`, `jra3q`, `hadisst`, `sentinel2`, `sonar` |
 | `task:`     | `bias-correction`, `climatology`, `ml`, `benchmark`, `visualization`, `ecs` |
-| `access:`   | `pelicanfs`, `intake-esm`, `zarr` |
 | `level:`    | `beginner`, `intermediate`, `advanced` |
+
+NCAR runs two OSDF origins. Use `origin:ncar-posix` for any notebook that
+streams from `osdf:///ncar/gdex/...` (POSIX storage; some older notebooks use
+the previous name `osdf:///ncar/rda/...` — that's the same origin). Use
+`origin:ncar-object-store` for notebooks that stream from
+`osdf:///ncar-gdex/...` (NCAR's object storage, currently called Boreas).
 
 A notebook can carry multiple `origin:` or `dataset:` tags — list every origin
 or dataset it actually touches.
