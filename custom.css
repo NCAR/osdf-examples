@@ -42,3 +42,35 @@ nav a img.h-9 {
   width: auto !important;
   max-height: none !important;
 }
+
+/* ---------------------------------------------------------------- */
+/* Notebook tag badges                                              */
+/* Rendered from inline spans like [origin:aws]{.tag .tag-origin}   */
+/* ---------------------------------------------------------------- */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  margin: 2px 4px 2px 0;
+  border-radius: 12px;
+  font-size: 0.78em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  border: 1px solid transparent;
+  line-height: 1.6;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.tag-origin   { background: #e3f2fd; color: #0d47a1; border-color: #bbdefb; }
+.tag-platform { background: #e8f5e9; color: #1b5e20; border-color: #c8e6c9; }
+.tag-dataset  { background: #fff3e0; color: #bf360c; border-color: #ffe0b2; }
+.tag-task     { background: #f3e5f5; color: #4a148c; border-color: #e1bee7; }
+.tag-access   { background: #eceff1; color: #263238; border-color: #cfd8dc; }
+.tag-level    { background: #e0f2f1; color: #004d40; border-color: #b2dfdb; }
+
+@media (prefers-color-scheme: dark) {
+  .tag-origin   { background: #1e3a5f; color: #90caf9; border-color: #2a4a6f; }
+  .tag-platform { background: #1b3a25; color: #a5d6a7; border-color: #2a4a35; }
+  .tag-dataset  { background: #4a2818; color: #ffcc80; border-color: #5a3828; }
+  .tag-task     { background: #3a1f4a; color: #ce93d8; border-color: #4a2f5a; }
+  .tag-access   { background: #2a2f33; color: #b0bec5; border-color: #3a3f43; }
+  .tag-level    { background: #1a3530; color: #80cbc4; border-color: #2a4540; }
+}
