@@ -41,8 +41,8 @@ was tested on. Browse the [Notebook Gallery](docs/notebook_gallery.md) for the
 full, tagged list.
 
 ### Data origins
-- **GDEX / NCAR Data Origin** — datasets streamed from NCAR's OSDF origin,
-  which is NCAR's [Geoscience Data Exchange (GDEX)](https://gdex.ucar.edu/).
+- **GDEX / NCAR Data Origin** — datasets streamed from NCAR's OSDF origins,
+  which are read from NCAR's [Geoscience Data Exchange (GDEX)](https://gdex.ucar.edu/).
   Covers CESM2 LENS, ERA5, JRA-3Q, DART, CONUS404, NA-CORDEX, SAAG, HadISST,
   and more.
 - **AWS Open Data** — CESM2 LENS, CMIP6 zarr (~27 GCMs), HRRR, NOAA SONAR,
