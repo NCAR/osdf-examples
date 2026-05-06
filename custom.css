@@ -75,8 +75,16 @@ article span.tag-task,     span.tag-task     { background: #f3e5f5 !important; c
 article span.tag-access,   span.tag-access   { background: #eceff1 !important; color: #263238 !important; border-color: #b0bec5 !important; }
 article span.tag-level,    span.tag-level    { background: #e0f2f1 !important; color: #004d40 !important; border-color: #80cbc4 !important; }
 
-a.tag-link { text-decoration: none !important; }
-a.tag-link:hover span.tag { filter: brightness(0.95); }
+/* Tags are rendered as markdown links wrapping styled spans, e.g.
+     [<span class="tag tag-origin">origin:aws</span>](tag-index#tag-origin-aws)
+   MyST emits the outer link as <a class="link">. Strip its default link
+   styling so only the pill shows, and add a subtle hover. */
+a.link:has(> span.tag),
+a:has(> span.tag) {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+a:has(> span.tag):hover span.tag { filter: brightness(0.95); }
 
 @media (prefers-color-scheme: dark) {
   article span.tag-origin,   span.tag-origin   { background: #1e3a5f !important; color: #90caf9 !important; border-color: #1976d2 !important; }
