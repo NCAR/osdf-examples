@@ -264,14 +264,21 @@ def tag_anchor(tag: str) -> str:
 def render_chip(tag: str) -> str:
     """Render one tag as a colored, clickable pill linking to the index.
 
-    Uses inline HTML because MyST/jupyter-book v2.0 doesn't parse
-    Pandoc-style `[text]{.class}` attributes, but passes raw HTML through.
+    Uses a Markdown link wrapping an HTML span:
+
+        [<span class="tag tag-FACET">FACET:VALUE</span>](/tag-index#tag-FACET-VALUE)
+
+    The Markdown URL **must start with a leading slash**. MyST/jupyter-book
+    v2 prefixes the build-time BASE_URL by string concatenation, and a
+    bare `tag-index` produces `/osdf-examplestag-index` (no separator).
+    A leading-slash URL `/tag-index` joins cleanly into
+    `/osdf-examples/tag-index`. The inner span carries the classes that
+    `custom.css` styles into a colored pill.
     """
     facet = tag.split(":", 1)[0]
     return (
-        f'<a class="tag-link" href="tag-index#{tag_anchor(tag)}">'
-        f'<span class="tag tag-{facet}">{tag}</span>'
-        f'</a>'
+        f'[<span class="tag tag-{facet}">{tag}</span>]'
+        f'(/tag-index#{tag_anchor(tag)})'
     )
 
 
@@ -304,7 +311,8 @@ TAG_CELL_MARKERS = (
     "[origin:",                   # bracketed-attr format (MyST didn't parse)
     "[platform:",
     '<span class="tag',           # earlier HTML-span format (no anchor)
-    '<a class="tag-link"',        # current anchor-wrapped HTML-span format
+    '<a class="tag-link"',        # earlier anchor-wrapped HTML format
+    '[<span class="tag',          # current markdown-link-wrapping-span format
 )
 
 
