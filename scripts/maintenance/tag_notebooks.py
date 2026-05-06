@@ -300,10 +300,11 @@ def find_existing_h1(nb: dict) -> str | None:
 
 
 TAG_CELL_MARKERS = (
-    "**Tags:**",            # original code-span format
-    "[origin:",             # bracketed-attr format (MyST didn't parse)
+    "**Tags:**",                  # original code-span format
+    "[origin:",                   # bracketed-attr format (MyST didn't parse)
     "[platform:",
-    '<span class="tag',     # current HTML-span format
+    '<span class="tag',           # earlier HTML-span format (no anchor)
+    '<a class="tag-link"',        # current anchor-wrapped HTML-span format
 )
 
 
