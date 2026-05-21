@@ -230,9 +230,26 @@ NOTEBOOKS = {
 }
 
 
-def make_title_cell(title: str, tags: list[str], heading: str) -> dict:
+DEFAULT_AUTHOR = "Harsha R. Hampapura"
+
+# Per-notebook author overrides (first entry = first author). Notebooks not
+# listed here inherit DEFAULT_AUTHOR.
+AUTHOR_OVERRIDES: dict[str, list[str]] = {
+    "notebooks/eol_era5.ipynb": ["Mya Sears", "Harsha R. Hampapura"],
+}
+
+
+def make_title_cell(rel_path: str, title: str, tags: list[str], heading: str) -> dict:
     """Build a markdown cell with frontmatter + H1."""
-    src_lines = ["---\n", f"title: {title}\n", "author: Harsha R. Hampapura\n", "tags:\n"]
+    src_lines = ["---\n", f"title: {title}\n"]
+    authors = AUTHOR_OVERRIDES.get(rel_path)
+    if authors:
+        src_lines.append("authors:\n")
+        for a in authors:
+            src_lines.append(f"  - {a}\n")
+    else:
+        src_lines.append(f"author: {DEFAULT_AUTHOR}\n")
+    src_lines.append("tags:\n")
     for t in tags:
         src_lines.append(f"  - {t}\n")
     src_lines.append("---\n")
@@ -333,7 +350,7 @@ def process(rel_path: str, title: str, tags: list[str]) -> str:
     # visible title text), else fall back to title from the mapping.
     heading = find_existing_h1(nb) or title
 
-    new_first = make_title_cell(title, tags, heading)
+    new_first = make_title_cell(rel_path, title, tags, heading)
     new_second = make_tag_cell(tags)
 
     # Drop any prior tag-line cells (in any past format) so this script is

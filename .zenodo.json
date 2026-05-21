@@ -1,0 +1,64 @@
+{
+  "upload_type": "software",
+  "title": "OSDF Examples: Reference Computational Workflows for Earth System Data Streaming via PelicanFS",
+  "description": "A collection of Jupyter notebooks that stream Earth System Science data from Open Science Data Federation (OSDF) origins using PelicanFS, and run analysis on a variety of HPC and cloud platforms (NCAR Casper, TACC Stampede3, Indiana Jetstream2, OSPool, laptop). Notebooks demonstrate bias correction, climatology, equilibrium climate sensitivity, machine learning, and benchmarking against datasets including CESM2 LENS, ERA5, CMIP6, NA-CORDEX, CONUS404, JRA-3Q, DART, HRRR, HadISST, NOAA SONAR, and Sentinel-2. Rendered site: https://ncar.github.io/osdf-examples/",
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "Jupyter Book",
+    "MyST",
+    "OSDF",
+    "PelicanFS",
+    "GDEX",
+    "NCAR",
+    "NDC",
+    "climate",
+    "earth-system-science",
+    "data-streaming",
+    "CMIP6",
+    "CESM",
+    "ERA5"
+  ],
+  "communities": [
+    { "identifier": "nsfncar" }
+  ],
+  "creators": [
+    {
+      "name": "Hampapura, Harsha R.",
+      "affiliation": "NSF National Center for Atmospheric Research",
+      "orcid": "0000-0002-2449-9032"
+    },
+    {
+      "name": "Conroy, Riley P.",
+      "affiliation": "NSF National Center for Atmospheric Research",
+      "orcid": "0009-0002-6453-2412"
+    },
+    {
+      "name": "Turetsky, Emma T.",
+      "affiliation": "Morgridge Institute for Research",
+      "orcid": "0009-0001-0067-6540"
+    },
+    {
+      "name": "Sears, Mya",
+      "affiliation": "NSF National Center for Atmospheric Research",
+      "orcid": "0009-0003-5870-7498"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://ncar.github.io/osdf-examples/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://osg-htc.org/services/osdf.html",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://gdex.ucar.edu/",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
