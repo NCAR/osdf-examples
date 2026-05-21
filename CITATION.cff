@@ -31,9 +31,14 @@ authors:
     given-names: Mya
     orcid: "https://orcid.org/0009-0003-5870-7498"
     affiliation: "NSF National Center for Atmospheric Research"
+  - family-names: "Del Vecchio"
+    given-names: Joanmarie
+    orcid: "https://orcid.org/0000-0003-3313-6097"
+    website: https://jmdelvecchio.github.io/
+    affiliation: "William & Mary"
 version: "v2026.05"
 date-released: "2026-05-08"
-doi: 10.5281/zenodo.16863133
+doi: 10.5281/zenodo.16863132
 repository-code: "https://github.com/NCAR/osdf_examples"
 url: "https://ncar.github.io/osdf-examples/"
 license: CC-BY-4.0
