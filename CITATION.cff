@@ -33,7 +33,7 @@ authors:
     affiliation: "NSF National Center for Atmospheric Research"
 version: "v2026.05"
 date-released: "2026-05-08"
-doi: 10.5281/zenodo.16863133
+doi: 10.5281/zenodo.16863132
 repository-code: "https://github.com/NCAR/osdf_examples"
 url: "https://ncar.github.io/osdf-examples/"
 license: CC-BY-4.0

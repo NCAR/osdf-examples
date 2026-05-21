@@ -1,7 +1,7 @@
 # OSDF-Examples
 
 [![Jupyter Book](https://img.shields.io/badge/jupyter--book-live-blue?logo=jupyter)](https://ncar.github.io/osdf-examples/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16863133.svg)](https://doi.org/10.5281/zenodo.16863133)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16863132.svg)](https://doi.org/10.5281/zenodo.16863132)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue?logo=python)](https://www.python.org/)
 [![PelicanFS](https://img.shields.io/badge/built%20with-PelicanFS-orange)](https://github.com/PelicanPlatform/pelicanfs)
 
