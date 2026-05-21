@@ -14,12 +14,18 @@ type: software
 authors:
   - family-names: Hampapura
     given-names: Harsha R.
-    affiliation: NSF NCAR
+    orcid: https://orcid.org/0000-0002-2449-9032
+    website: https://github.com/hrhampapura
+    affiliation: NCAR
   - family-names: Conroy
-    given-names: Riley
-    affiliation: NSF NCAR
+    given-names: Riley P.
+    orcid: https://orcid.org/0009-0002-6453-2412
+    website: https://github.com/rpconroy
+    affiliation: NSF/NCAR
   - family-names: Turetsky
-    given-names: Emma
+    given-names: Emma T.
+    orcid: https://orcid.org/0009-0001-0067-6540
+    website: https://github.com/turetske
     affiliation: Morgridge Institute for Research
 version: "v2026.05"
 date-released: "2026-05-08"
