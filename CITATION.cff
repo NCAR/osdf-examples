@@ -13,28 +13,30 @@ abstract: >-
 type: software
 authors:
   - family-names: Hampapura
-    given-names: Harsha R.
-    orcid: https://orcid.org/0000-0002-2449-9032
+    given-names: "Harsha R."
+    orcid: "https://orcid.org/0000-0002-2449-9032"
     website: https://github.com/hrhampapura
-    affiliation: NCAR
+    affiliation: "NSF National Center for Atmospheric Research"
   - family-names: Conroy
-    given-names: Riley P.
-    orcid: https://orcid.org/0009-0002-6453-2412
+    given-names: "Riley P."
+    orcid: "https://orcid.org/0009-0002-6453-2412"
     website: https://github.com/rpconroy
-    affiliation: NSF/NCAR
+    affiliation: "NSF National Center for Atmospheric Research"
   - family-names: Turetsky
-    given-names: Emma T.
-    orcid: https://orcid.org/0009-0001-0067-6540
+    given-names: "Emma T."
+    orcid: "https://orcid.org/0009-0001-0067-6540"
     website: https://github.com/turetske
-    affiliation: Morgridge Institute for Research
+    affiliation: "Morgridge Institute for Research"
   - family-names: Sears
     given-names: Mya
-    orcid: https://orcid.org/0009-0003-5870-7498
+    orcid: "https://orcid.org/0009-0003-5870-7498"
+    affiliation: "NSF National Center for Atmospheric Research"
 version: "v2026.05"
 date-released: "2026-05-08"
 doi: 10.5281/zenodo.16863133
 repository-code: "https://github.com/NCAR/osdf_examples"
 url: "https://ncar.github.io/osdf-examples/"
+license: CC-BY-4.0
 keywords:
   - OSDF
   - PelicanFS
