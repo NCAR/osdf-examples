@@ -25,10 +25,13 @@ infrastructure, see
 ```bash
 git clone https://github.com/NCAR/osdf-examples.git
 cd osdf-examples
-python -m venv .venv && source .venv/bin/activate    # or use conda
-pip install -r requirements.txt
+conda env create -n osdf -f environment.yml    # cross-platform (Linux/macOS/Windows)
+conda activate osdf
 jupyter lab
 ```
+
+`environment.yml` lists direct dependencies and solves on any OS
+(Linux/macOS/Windows).
 
 New here? Start with [`notebooks/simple_aws_example.ipynb`](notebooks/simple_aws_example.ipynb)
 (runs on a laptop, no credentials required).
