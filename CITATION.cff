@@ -1,0 +1,57 @@
+cff-version: 1.2.0
+message: "If you use any workflow in this repository, please cite it as below."
+title: "OSDF Examples: Reference Computational Workflows for Earth System Data Streaming via PelicanFS"
+abstract: >-
+  A collection of Jupyter notebook workflows that stream Earth System Science
+  data from Open Science Data Federation (OSDF) origins using PelicanFS, and
+  run analysis on a variety of HPC and cloud platforms (NCAR Casper, TACC
+  Stampede3, Indiana Jetstream2, OSPool, laptop). Notebooks demonstrate
+  bias correction, climatology, equilibrium climate sensitivity, machine
+  learning, and benchmarking against datasets including CESM2 LENS, ERA5,
+  CMIP6, NA-CORDEX, CONUS404, JRA-3Q, DART, HRRR, HadISST, NOAA SONAR, and
+  Sentinel-2.
+type: software
+authors:
+  - family-names: Hampapura
+    given-names: "Harsha R."
+    orcid: "https://orcid.org/0000-0002-2449-9032"
+    website: https://github.com/hrhampapura
+    affiliation: "NSF National Center for Atmospheric Research"
+  - family-names: Conroy
+    given-names: "Riley P."
+    orcid: "https://orcid.org/0009-0002-6453-2412"
+    website: https://github.com/rpconroy
+    affiliation: "NSF National Center for Atmospheric Research"
+  - family-names: Turetsky
+    given-names: "Emma T."
+    orcid: "https://orcid.org/0009-0001-0067-6540"
+    website: https://github.com/turetske
+    affiliation: "Morgridge Institute for Research"
+  - family-names: Sears
+    given-names: Mya
+    orcid: "https://orcid.org/0009-0003-5870-7498"
+    affiliation: "NSF National Center for Atmospheric Research"
+  - family-names: "Del Vecchio"
+    given-names: Joanmarie
+    orcid: "https://orcid.org/0000-0003-3313-6097"
+    website: https://jmdelvecchio.github.io/
+    affiliation: "William & Mary"
+version: "v2026.05"
+date-released: "2026-05-08"
+doi: 10.5281/zenodo.16863132
+repository-code: "https://github.com/NCAR/osdf_examples"
+url: "https://ncar.github.io/osdf-examples/"
+license: CC-BY-4.0
+keywords:
+  - OSDF
+  - PelicanFS
+  - GDEX
+  - jupyter-book
+  - climate-data
+  - CMIP6
+  - CESM
+  - ERA5
+  - earth-system-science
+  - data-streaming
+  - HTC
+  - NDC

@@ -42,3 +42,55 @@ nav a img.h-9 {
   width: auto !important;
   max-height: none !important;
 }
+
+/* ---------------------------------------------------------------- */
+/* Notebook tag badges                                              */
+/* Higher-specificity selectors (article span.tag) with !important  */
+/* defeat any conflicting book-theme inline-span styling.           */
+/* ---------------------------------------------------------------- */
+article span.tag,
+.myst-card span.tag,
+span.tag {
+  display: inline-block !important;
+  padding: 2px 10px !important;
+  margin: 3px 4px 3px 0 !important;
+  border-radius: 999px !important;
+  font-size: 0.8em !important;
+  font-weight: 500 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  border: 1px solid transparent !important;
+  line-height: 1.5 !important;
+  white-space: nowrap !important;
+  vertical-align: baseline !important;
+  text-decoration: none !important;
+  background: #eceff1 !important;
+  color: #263238 !important;
+  border-color: #cfd8dc !important;
+}
+
+article span.tag-origin,   span.tag-origin   { background: #e3f2fd !important; color: #0d47a1 !important; border-color: #90caf9 !important; }
+article span.tag-platform, span.tag-platform { background: #e8f5e9 !important; color: #1b5e20 !important; border-color: #a5d6a7 !important; }
+article span.tag-dataset,  span.tag-dataset  { background: #fff3e0 !important; color: #bf360c !important; border-color: #ffcc80 !important; }
+article span.tag-task,     span.tag-task     { background: #f3e5f5 !important; color: #4a148c !important; border-color: #ce93d8 !important; }
+article span.tag-access,   span.tag-access   { background: #eceff1 !important; color: #263238 !important; border-color: #b0bec5 !important; }
+article span.tag-level,    span.tag-level    { background: #e0f2f1 !important; color: #004d40 !important; border-color: #80cbc4 !important; }
+
+/* Tags are rendered as markdown links wrapping styled spans, e.g.
+     [<span class="tag tag-origin">origin:aws</span>](tag-index#tag-origin-aws)
+   MyST emits the outer link as <a class="link">. Strip its default link
+   styling so only the pill shows, and add a subtle hover. */
+a.link:has(> span.tag),
+a:has(> span.tag) {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+a:has(> span.tag):hover span.tag { filter: brightness(0.95); }
+
+@media (prefers-color-scheme: dark) {
+  article span.tag-origin,   span.tag-origin   { background: #1e3a5f !important; color: #90caf9 !important; border-color: #1976d2 !important; }
+  article span.tag-platform, span.tag-platform { background: #1b3a25 !important; color: #a5d6a7 !important; border-color: #2e7d32 !important; }
+  article span.tag-dataset,  span.tag-dataset  { background: #4a2818 !important; color: #ffcc80 !important; border-color: #ef6c00 !important; }
+  article span.tag-task,     span.tag-task     { background: #3a1f4a !important; color: #ce93d8 !important; border-color: #7b1fa2 !important; }
+  article span.tag-access,   span.tag-access   { background: #2a2f33 !important; color: #b0bec5 !important; border-color: #455a64 !important; }
+  article span.tag-level,    span.tag-level    { background: #1a3530 !important; color: #80cbc4 !important; border-color: #00897b !important; }
+}
