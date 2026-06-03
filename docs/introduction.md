@@ -15,9 +15,9 @@ interesting calculation or visualization.
 
 :::{warning} Important Notice
 This Jupyter Book is under active development. Set up your Python environment
-using the `requirements.txt` file before running any of the notebooks. Please
-open an issue on the associated GitHub repository to report bugs or suggest
-improvements.
+with `conda env create -n osdf -f environment.yml` before running any of the
+notebooks. Please open an issue on the associated GitHub repository to report
+bugs or suggest improvements.
 :::
 
 ## A short primer on OSDF and PelicanFS
