@@ -47,7 +47,7 @@ into the search bar at the top of the page.
 - [`cesm_gmst_ncar.ipynb`](../notebooks/cesm_gmst_ncar.ipynb) — CESM2 LENS Global Mean Surface Temperature anomaly
 - [`cesm_oceanheat.ipynb`](../notebooks/cesm_oceanheat.ipynb) — CESM2 LENS surface ocean heat content
 - [`jetstream_cmip6_gmst.ipynb`](../notebooks/jetstream_cmip6_gmst.ipynb) — CMIP6 GMST on Jetstream2
-- [`conus404.ipynb`](../notebooks/conus404.ipynb) — CONUS404 diagnostic plots
+- [`conus404.ipynb`](../notebooks/conus404.ipynb) — CONUS404 — Monthly precipitation across CONUS
 - [`geocat_climatology.ipynb`](../notebooks/geocat_climatology.ipynb) — Daily-temperature climatology with geocat-comp
 - [`dart-cam6.ipynb`](../notebooks/dart-cam6.ipynb) — DART/CAM6 reanalysis diagnostics
 - [`hadisst_elnino.ipynb`](../notebooks/hadisst_elnino.ipynb) — El Niño diagnostics from HadISST
@@ -61,6 +61,7 @@ into the search bar at the top of the page.
 - [`ncar_benchmark_ap40.ipynb`](../notebooks/ndc_workflows/ncar_benchmark_ap40.ipynb) — NCAR-origin benchmark via OSPool AP40
 - [`jetstream_cesm_oceanheat.ipynb`](../notebooks/jetstream_cesm_oceanheat.ipynb) — Ocean-heat workflow on Jetstream2
 - [`saag.ipynb`](../notebooks/saag.ipynb) — SAAG dataset diagnostics
+- [`mesaclip_regrid_sst.ipynb`](../notebooks/mesaclip_regrid_sst.ipynb) — Sea Surface Temperature data from MESACLIP historical run
 - [`ncar_benchmark_simple.ipynb`](../notebooks/ndc_workflows/ncar_benchmark_simple.ipynb) — Simplified NCAR-origin benchmark
 - [`uxarray_test.ipynb`](../notebooks/uxarray_test.ipynb) — Unstructured-grid access via UXarray
 
@@ -76,7 +77,7 @@ into the search bar at the top of the page.
 - [`cesm_gmst_ncar.ipynb`](../notebooks/cesm_gmst_ncar.ipynb) — CESM2 LENS Global Mean Surface Temperature anomaly
 - [`cesm_oceanheat.ipynb`](../notebooks/cesm_oceanheat.ipynb) — CESM2 LENS surface ocean heat content
 - [`cmip6_precipitation.ipynb`](../notebooks/cmip6_precipitation.ipynb) — CMIP6 precipitation diagnostics
-- [`conus404.ipynb`](../notebooks/conus404.ipynb) — CONUS404 diagnostic plots
+- [`conus404.ipynb`](../notebooks/conus404.ipynb) — CONUS404 — Monthly precipitation across CONUS
 - [`geocat_climatology.ipynb`](../notebooks/geocat_climatology.ipynb) — Daily-temperature climatology with geocat-comp
 - [`dart-cam6.ipynb`](../notebooks/dart-cam6.ipynb) — DART/CAM6 reanalysis diagnostics
 - [`hadisst_elnino.ipynb`](../notebooks/hadisst_elnino.ipynb) — El Niño diagnostics from HadISST
@@ -89,6 +90,7 @@ into the search bar at the top of the page.
 - [`cmip6_gmst_zarr.ipynb`](../notebooks/cmip6_gmst_zarr.ipynb) — Multi-model GMST from CMIP6 zarr (~27 GCMs)
 - [`na_cordex.ipynb`](../notebooks/na_cordex.ipynb) — NA-CORDEX diagnostic plots
 - [`saag.ipynb`](../notebooks/saag.ipynb) — SAAG dataset diagnostics
+- [`mesaclip_regrid_sst.ipynb`](../notebooks/mesaclip_regrid_sst.ipynb) — Sea Surface Temperature data from MESACLIP historical run
 - [`hrrr_aws.ipynb`](../notebooks/hrrr_aws.ipynb) — Stream HRRR data from AWS
 - [`uxarray_test.ipynb`](../notebooks/uxarray_test.ipynb) — Unstructured-grid access via UXarray
 
@@ -129,6 +131,7 @@ into the search bar at the top of the page.
 - [`cesm_gmst_ncar.ipynb`](../notebooks/cesm_gmst_ncar.ipynb) — CESM2 LENS Global Mean Surface Temperature anomaly
 - [`cesm_oceanheat.ipynb`](../notebooks/cesm_oceanheat.ipynb) — CESM2 LENS surface ocean heat content
 - [`jetstream_cesm_oceanheat.ipynb`](../notebooks/jetstream_cesm_oceanheat.ipynb) — Ocean-heat workflow on Jetstream2
+- [`mesaclip_regrid_sst.ipynb`](../notebooks/mesaclip_regrid_sst.ipynb) — Sea Surface Temperature data from MESACLIP historical run
 
 (tag-dataset-cmip6)=
 ### <span class="tag tag-dataset">dataset:cmip6</span>
@@ -143,7 +146,7 @@ into the search bar at the top of the page.
 (tag-dataset-conus404)=
 ### <span class="tag tag-dataset">dataset:conus404</span>
 
-- [`conus404.ipynb`](../notebooks/conus404.ipynb) — CONUS404 diagnostic plots
+- [`conus404.ipynb`](../notebooks/conus404.ipynb) — CONUS404 — Monthly precipitation across CONUS
 
 (tag-dataset-dart)=
 ### <span class="tag tag-dataset">dataset:dart</span>
@@ -237,7 +240,7 @@ into the search bar at the top of the page.
 - [`cesm_oceanheat.ipynb`](../notebooks/cesm_oceanheat.ipynb) — CESM2 LENS surface ocean heat content
 - [`jetstream_cmip6_gmst.ipynb`](../notebooks/jetstream_cmip6_gmst.ipynb) — CMIP6 GMST on Jetstream2
 - [`cmip6_precipitation.ipynb`](../notebooks/cmip6_precipitation.ipynb) — CMIP6 precipitation diagnostics
-- [`conus404.ipynb`](../notebooks/conus404.ipynb) — CONUS404 diagnostic plots
+- [`conus404.ipynb`](../notebooks/conus404.ipynb) — CONUS404 — Monthly precipitation across CONUS
 - [`dart-cam6.ipynb`](../notebooks/dart-cam6.ipynb) — DART/CAM6 reanalysis diagnostics
 - [`hadisst_elnino.ipynb`](../notebooks/hadisst_elnino.ipynb) — El Niño diagnostics from HadISST
 - [`eol_era5.ipynb`](../notebooks/eol_era5.ipynb) — ERA5 access via the EOL/NCAR origin
@@ -249,6 +252,7 @@ into the search bar at the top of the page.
 - [`jetstream_cesm_oceanheat.ipynb`](../notebooks/jetstream_cesm_oceanheat.ipynb) — Ocean-heat workflow on Jetstream2
 - [`sonar_ai.ipynb`](../notebooks/ndc_workflows/sonar_ai.ipynb) — Plot echograms from NOAA SONAR data
 - [`saag.ipynb`](../notebooks/saag.ipynb) — SAAG dataset diagnostics
+- [`mesaclip_regrid_sst.ipynb`](../notebooks/mesaclip_regrid_sst.ipynb) — Sea Surface Temperature data from MESACLIP historical run
 - [`pycogss_spectral_change.ipynb`](../notebooks/ndc_workflows/pycogss_spectral_change.ipynb) — Spectral change from Sentinel-2 imagery
 - [`hrrr_aws.ipynb`](../notebooks/hrrr_aws.ipynb) — Stream HRRR data from AWS
 - [`uxarray_test.ipynb`](../notebooks/uxarray_test.ipynb) — Unstructured-grid access via UXarray
@@ -262,6 +266,7 @@ into the search bar at the top of the page.
 - [`envistor_test_ap40.ipynb`](../notebooks/ndc_workflows/envistor_test_ap40.ipynb) — Envistor test via OSPool AP40
 - [`cmip6_ecs.ipynb`](../notebooks/cmip6_ecs.ipynb) — Equilibrium Climate Sensitivity from CMIP6
 - [`ncar_benchmark_ap40.ipynb`](../notebooks/ndc_workflows/ncar_benchmark_ap40.ipynb) — NCAR-origin benchmark via OSPool AP40
+- [`mesaclip_regrid_sst.ipynb`](../notebooks/mesaclip_regrid_sst.ipynb) — Sea Surface Temperature data from MESACLIP historical run
 - [`uxarray_test.ipynb`](../notebooks/uxarray_test.ipynb) — Unstructured-grid access via UXarray
 
 (tag-level-beginner)=
@@ -282,7 +287,7 @@ into the search bar at the top of the page.
 - [`cesm_oceanheat.ipynb`](../notebooks/cesm_oceanheat.ipynb) — CESM2 LENS surface ocean heat content
 - [`jetstream_cmip6_gmst.ipynb`](../notebooks/jetstream_cmip6_gmst.ipynb) — CMIP6 GMST on Jetstream2
 - [`cmip6_precipitation.ipynb`](../notebooks/cmip6_precipitation.ipynb) — CMIP6 precipitation diagnostics
-- [`conus404.ipynb`](../notebooks/conus404.ipynb) — CONUS404 diagnostic plots
+- [`conus404.ipynb`](../notebooks/conus404.ipynb) — CONUS404 — Monthly precipitation across CONUS
 - [`geocat_climatology.ipynb`](../notebooks/geocat_climatology.ipynb) — Daily-temperature climatology with geocat-comp
 - [`dart-cam6.ipynb`](../notebooks/dart-cam6.ipynb) — DART/CAM6 reanalysis diagnostics
 - [`hadisst_elnino.ipynb`](../notebooks/hadisst_elnino.ipynb) — El Niño diagnostics from HadISST

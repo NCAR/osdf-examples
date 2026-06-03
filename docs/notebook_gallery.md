@@ -52,6 +52,7 @@ of these run on Casper.
 | [`na_cordex.ipynb`](../notebooks/na_cordex.ipynb) | NA-CORDEX diagnostic plots | [<span class="tag tag-dataset">dataset:na-cordex</span>](/tag-index#tag-dataset-na-cordex) [<span class="tag tag-task">task:visualization</span>](/tag-index#tag-task-visualization) [<span class="tag tag-platform">platform:casper</span>](/tag-index#tag-platform-casper) |
 | [`saag.ipynb`](../notebooks/saag.ipynb) | SAAG dataset diagnostics | [<span class="tag tag-task">task:visualization</span>](/tag-index#tag-task-visualization) [<span class="tag tag-platform">platform:casper</span>](/tag-index#tag-platform-casper) |
 | [`uxarray_test.ipynb`](../notebooks/uxarray_test.ipynb) | Unstructured-grid access via UXarray | [<span class="tag tag-task">task:visualization</span>](/tag-index#tag-task-visualization) [<span class="tag tag-platform">platform:casper</span>](/tag-index#tag-platform-casper) |
+| [`mesaclip_regrid_sst.ipynb`](../notebooks/mesaclip_regrid_sst.ipynb) | Regrid & visualize SST from the MESACLIP (CESM-iHESP) historical run | [<span class="tag tag-dataset">dataset:cesm</span>](/tag-index#tag-dataset-cesm) [<span class="tag tag-task">task:visualization</span>](/tag-index#tag-task-visualization) [<span class="tag tag-platform">platform:casper</span>](/tag-index#tag-platform-casper) |
 
 ## AWS Open Data
 

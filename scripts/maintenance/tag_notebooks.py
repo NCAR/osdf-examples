@@ -51,7 +51,7 @@ NOTEBOOKS = {
          "level:intermediate"],
     ),
     "notebooks/conus404.ipynb": (
-        "CONUS404 diagnostic plots",
+        "CONUS404 — Monthly precipitation across CONUS",
         ["origin:ncar-posix", "platform:casper",
          "dataset:conus404", "task:visualization",
          "level:intermediate"],
@@ -227,6 +227,12 @@ NOTEBOOKS = {
          "dataset:sentinel2", "task:visualization",
          "level:intermediate"],
     ),
+    "notebooks/mesaclip_regrid_sst.ipynb": (
+        "Sea Surface Temperature data from MESACLIP historical run",
+        ["origin:ncar-posix", "platform:casper",
+         "dataset:cesm", "task:visualization",
+         "level:advanced"],
+    ),
 }
 
 
@@ -236,6 +242,7 @@ DEFAULT_AUTHOR = "Harsha R. Hampapura"
 # listed here inherit DEFAULT_AUTHOR.
 AUTHOR_OVERRIDES: dict[str, list[str]] = {
     "notebooks/eol_era5.ipynb": ["Mya Sears", "Harsha R. Hampapura"],
+    "notebooks/mesaclip_regrid_sst.ipynb": ["Frederic Castruccio", "Chia-Wei Hsu"],
 }
 
 

@@ -47,6 +47,7 @@ project:
             - file: notebooks/saag.ipynb
             - file: notebooks/hadisst_elnino.ipynb
             - file: notebooks/jja_heatindex.ipynb
+            - file: notebooks/mesaclip_regrid_sst.ipynb
 
         - title: Other data origins
           children:
