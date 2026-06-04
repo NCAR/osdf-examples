@@ -1,0 +1,81 @@
+# pip requirements for running the osdf-examples notebooks.
+#
+# Direct dependencies only (PyPI names), no version pins, so it installs on
+# Linux, macOS, and Windows. This mirrors environment.yml for users who
+# prefer pip / virtualenv over conda:
+#
+#   python -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+#
+# Note: a few packages (cartopy, cf-units, geocat-comp, netCDF4) link against
+# system libraries (GEOS, PROJ, UDUNITS2, HDF5). pip wheels bundle these on
+# most platforms; if a build fails, install that library via your OS package
+# manager (or use environment.yml with conda, which handles them natively).
+
+# Core scientific Python
+numpy
+pandas
+scipy
+xarray
+matplotlib
+seaborn
+
+# Geoscience / climate
+cartopy
+cf-units
+cftime
+nc-time-axis
+geocat-comp
+uxarray
+xarray-regrid
+xhistogram
+geopandas
+shapely
+pyproj
+rioxarray
+
+# OSDF data access + catalogs
+pelicanfs
+intake
+intake-esm
+kerchunk
+zarr
+fsspec
+aiohttp
+requests
+netCDF4
+h5netcdf
+s3fs
+# Parquet engines for kerchunk lazy references. pyarrow is the preferred
+# engine; fastparquet mis-decodes null `raw` cells in lazy-parquet references
+# as NaN (see the mesaclip notebook). Keep both; select pyarrow explicitly
+# when opening such references.
+pyarrow
+fastparquet
+
+# Parallel compute
+dask
+distributed
+dask-jobqueue   # NCAR PBSCluster on Casper / Derecho
+dask-gateway    # cloud / JupyterHub gateway setups
+
+# ML
+scikit-learn
+
+# Interactive maps / plotting extras
+folium
+branca
+
+# Misc
+tqdm
+psutil
+nest-asyncio
+
+# Jupyter
+jupyterlab
+ipykernel
+ipywidgets
+
+# Colormaps + heat-index helper (pip-only)
+cmap
+heatindex
