@@ -47,6 +47,7 @@ dependencies:
   - donfig=0.8.1.post1=pyhd8ed1ab_1
   - flexcache=0.3=pyhd8ed1ab_1
   - flexparser=0.4=pyhd8ed1ab_1
+  - folium
   - fonttools=4.61.1=py311h3778330_0
   - freetype=2.14.1=ha770c72_0
   - fsspec=2026.1.0=pyhd8ed1ab_0
@@ -172,6 +173,7 @@ dependencies:
   - re2=2025.11.05=h5301d42_0
   - readline=8.3=h853b02a_0
   - requests=2.32.5=pyhcf101f3_1
+  - rioxarray
   - s2n=1.6.2=he8a4886_1
   - setuptools=80.10.1=pyh332efcf_0
   - shapely=2.1.2=py311h8a92878_2
