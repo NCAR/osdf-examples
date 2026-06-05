@@ -22,13 +22,30 @@ infrastructure, see
 
 ## Quick Start
 
+**conda** (recommended — handles the compiled geoscience libraries natively):
+
 ```bash
 git clone https://github.com/NCAR/osdf-examples.git
 cd osdf-examples
-python -m venv .venv && source .venv/bin/activate    # or use conda
+conda env create -n osdf -f environment.yml    # cross-platform (Linux/macOS/Windows)
+conda activate osdf
+jupyter lab
+```
+
+**pip / virtualenv** (e.g. on systems without conda):
+
+```bash
+git clone https://github.com/NCAR/osdf-examples.git
+cd osdf-examples
+python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 jupyter lab
 ```
+
+Both `environment.yml` and `requirements.txt` list the same direct
+dependencies and work on Linux, macOS, and Windows. A few packages
+(cartopy, cf-units, geocat-comp, netCDF4) link against system libraries;
+conda installs those automatically, while pip relies on prebuilt wheels.
 
 New here? Start with [`notebooks/simple_aws_example.ipynb`](notebooks/simple_aws_example.ipynb)
 (runs on a laptop, no credentials required).
