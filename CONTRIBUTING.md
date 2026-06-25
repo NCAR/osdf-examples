@@ -77,7 +77,7 @@ fit, and please mention the addition in your PR.
 |-------|----------------|
 | `origin:`   | `aws`, `ncar-posix`, `ncar-object-store` |
 | `platform:` | `casper`, `stampede3`, `jetstream2`, `ospool`, `laptop` |
-| `dataset:`  | `cesm`, `cmip6`, `era5`, `conus404`, `na-cordex`, `hrrr`, `dart`, `jra3q`, `hadisst`, `sentinel2`, `sonar` |
+| `dataset:`  | `cesm`, `cmip6`, `era5`, `conus404`, `na-cordex`, `hrrr`, `dart`, `jra3q`, `hadisst`, `sentinel2`, `sonar`, `saag`, `maag` |
 | `task:`     | `bias-correction`, `climatology`, `ml`, `benchmark`, `visualization`, `ecs` |
 | `level:`    | `beginner`, `intermediate`, `advanced` |
 

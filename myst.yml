@@ -45,6 +45,7 @@ project:
             - file: notebooks/uxarray_test.ipynb
             - file: notebooks/era5_precip.ipynb
             - file: notebooks/saag.ipynb
+            - file: notebooks/maag.ipynb
             - file: notebooks/hadisst_elnino.ipynb
             - file: notebooks/jja_heatindex.ipynb
             - file: notebooks/mesaclip_regrid_sst.ipynb

@@ -105,9 +105,15 @@ NOTEBOOKS = {
          "level:intermediate"],
     ),
     "notebooks/saag.ipynb": (
-        "SAAG dataset diagnostics",
+        "JJA precipitation across South America (SAAG)",
         ["origin:ncar-posix", "platform:casper",
          "dataset:saag", "task:visualization",
+         "level:intermediate"],
+    ),
+    "notebooks/maag.ipynb": (
+        "Hurricane Maria rainfall over Puerto Rico (MAAG)",
+        ["origin:ncar-posix", "platform:casper",
+         "dataset:maag", "task:visualization",
          "level:intermediate"],
     ),
     "notebooks/uxarray_test.ipynb": (
