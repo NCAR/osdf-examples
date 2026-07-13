@@ -101,11 +101,15 @@ seekable file object, so hand `xr.open_dataset` an open handle rather than a URL
 from pelicanfs.core import OSDFFileSystem
 
 fs = OSDFFileSystem()
-# Exact filename comes from the dataset's "Data Access" tab / intake catalog.
-nc_path = "osdf:///ncar/gdex/d633000/e5.oper.an.sfc/199001/e5.oper.an.sfc.128_167_2t.ll025sc.1990010100_1990013123.nc"
+# One month of hourly ERA5 2-m temperature — a ~1.1 GB raw NetCDF file under d633000.
+nc_path = "osdf:///ncar/gdex/d633000/e5.oper.an.sfc/202501/e5.oper.an.sfc.128_167_2t.ll025sc.2025010100_2025013123.nc"
 with fs.open(nc_path, "rb") as f:
-    ds_nc = xr.open_dataset(f, engine="h5netcdf")
+    ds_nc = xr.open_dataset(f, engine="h5netcdf")   # header now; variable data on demand
 ```
+
+Opening reads only the file header, so it returns quickly despite the ~1 GB size —
+variable data streams in as you slice. For *many* NetCDF files at once, a kerchunk
+reference (below) is far more efficient than opening each one over HTTP.
 
 ### Generic read (no options)
 
