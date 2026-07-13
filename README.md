@@ -12,6 +12,11 @@ run analysis on a variety of HPC and cloud platforms.
 
 **Browse the rendered book:** https://ncar.github.io/osdf-examples/
 
+**Start here:** the [Quick Start guide](docs/quickstart.md) takes you from install
+to your first `osdf://` read — with the main PelicanFS access patterns (Zarr,
+NetCDF, kerchunk, `direct_reads`, `preferred_caches`) and common fixes. The
+[Introduction](docs/introduction.md) is the companion concept primer.
+
 **New to OSDF or PelicanFS?** Project Pythia's
 [OSDF Cookbook](https://projectpythia.org/osdf-cookbook/) is the recommended
 introduction — its first chapters cover the OSDF concept and PelicanFS in
@@ -20,7 +25,10 @@ infrastructure, see
 [*Integration of OSDF with NCAR's data infrastructure: Interim Project Report*](https://gdex.ucar.edu/documents/24/Interim_Project_Report_OSDF.pdf)
 (Oct 2025).
 
-## Quick Start
+## Installation
+
+The [Quick Start guide](docs/quickstart.md) has the fuller walkthrough; to just
+get the repository running locally:
 
 **conda** (recommended — handles the compiled geoscience libraries natively):
 
@@ -47,7 +55,8 @@ dependencies and work on Linux, macOS, and Windows. A few packages
 (cartopy, cf-units, geocat-comp, netCDF4) link against system libraries;
 conda installs those automatically, while pip relies on prebuilt wheels.
 
-New here? Start with [`notebooks/simple_aws_example.ipynb`](notebooks/simple_aws_example.ipynb)
+Then open the [Quick Start guide](docs/quickstart.md) for your first `osdf://`
+read, or jump straight to [`notebooks/simple_aws_example.ipynb`](notebooks/simple_aws_example.ipynb)
 (runs on a laptop, no credentials required).
 
 ## What's inside
