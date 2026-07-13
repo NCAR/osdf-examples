@@ -166,24 +166,27 @@ ds = xr.open_zarr(
 
 ### kerchunk references (virtual Zarr over NetCDF)
 
-kerchunk exposes a pile of NetCDF files as one virtual Zarr store via a small
-reference file, opened through the `osdf` **remote protocol**. Cache-control
-options ride in `remote_options` (not `storage_options`) here:
+kerchunk exposes many NetCDF files as one virtual Zarr store via a small reference
+file — and both the reference *and* the data it points to can be read over OSDF.
+Cache-control options for the **data chunks** ride in `remote_options` here (not
+`storage_options`, as they would for a plain Zarr open):
 
 ```python
 ds = xr.open_dataset(
-    "https://data.gdex.ucar.edu/d633000/kerchunk/<era5-reference>.parq",  # confirm exact reference name
+    "osdf:///ncar/gdex/d640000/kerchunk/anl_surf125-remote-osdf.parq",  # the reference, over OSDF
     engine="kerchunk",
     storage_options={
-        "remote_protocol": "osdf",
-        "remote_options": {"direct_reads": True},   # or {"preferred_caches": [...]}
-    },
+        "remote_protocol": "osdf",                   # the data targets are OSDF too
+        "remote_options": {"direct_reads": True},    # cache control for the data chunks
+    },                                               # (or {"preferred_caches": [...]}, or omit)
 )
 ```
 
-A complete, working kerchunk-over-OSDF example (JRA-3Q) lives in
-[`jja_heatindex.ipynb`](../notebooks/jja_heatindex.ipynb); ERA5 references open
-the same way.
+This is the JRA-3Q surface reference behind
+[`jja_heatindex.ipynb`](../notebooks/jja_heatindex.ipynb) — a complete, working
+kerchunk-over-OSDF workflow. ERA5 references live under
+`osdf:///ncar/gdex/d633000/kerchunk/...` (e.g. the `meanflux/` collection) and
+open exactly the same way.
 
 ## 6. Common errors and fixes
 
