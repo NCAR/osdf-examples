@@ -71,6 +71,7 @@ project:
         - file: notebooks/jetstream_intro.ipynb
         - file: notebooks/jetstream_cesm_oceanheat.ipynb
         - file: notebooks/jetstream_cmip6_gmst.ipynb
+        - file: notebooks/aws_cmip6_gmst.ipynb
         - file: notebooks/ndc_workflows/ncar_benchmark.ipynb
         - file: notebooks/ndc_workflows/ncar_benchmark_simple.ipynb
         - file: notebooks/ndc_workflows/ncar_benchmark_ap40.ipynb
