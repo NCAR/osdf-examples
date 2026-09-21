@@ -71,8 +71,10 @@ project:
         - file: notebooks/jetstream_intro.ipynb
         - file: notebooks/jetstream_cesm_oceanheat.ipynb
         - file: notebooks/jetstream_cmip6_gmst.ipynb
+        - file: notebooks/aws_intro.ipynb
         - file: notebooks/aws_cmip6_gmst.ipynb
         - file: notebooks/aws_cmip6_ecs.ipynb
+        - file: notebooks/aws_ec2_osdf_s3_benchmark.ipynb
         - file: notebooks/ndc_workflows/ncar_benchmark.ipynb
         - file: notebooks/ndc_workflows/ncar_benchmark_simple.ipynb
         - file: notebooks/ndc_workflows/ncar_benchmark_ap40.ipynb
@@ -81,7 +83,6 @@ project:
       children:
         - file: docs/ndc_workflows.md
         - file: notebooks/ndc_workflows/aws_benchmark.ipynb
-        - file: notebooks/aws_ec2_osdf_s3_benchmark.ipynb
         - file: notebooks/ndc_workflows/envistor_test_ap40.ipynb
         - file: notebooks/ndc_workflows/pycogss_spectral_change.ipynb
         - file: notebooks/ndc_workflows/sonar_ai.ipynb
